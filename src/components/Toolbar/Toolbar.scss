@@ -29,7 +29,7 @@
 .toolbar-input__task:focus {
   height: 3vw;
 
-  background-color: #283845;
+  background-color: #202c39;
   color: #f2d492;
 
   border-radius: 10px 0 0 10px;
@@ -50,7 +50,7 @@
   align-items: center;
 
   background-color: #f2d492;
-  color: #283845;
+  color: #202c39;
 
   border: none;
   border-radius: 10px;
@@ -59,7 +59,7 @@
   transition: 300ms;
 
   &:hover {
-    background-color: #283845;
+    background-color: #202c39;
     color: #f2d492;
   }
 }
