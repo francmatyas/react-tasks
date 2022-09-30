@@ -1,0 +1,50 @@
+.tasks{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 100%;
+    width: 70vw;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks-completed{
+    height: 2.5vw;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-completed__button{
+    height: 2vw;
+    width: 9vw;
+
+    background-color: #283845;
+    color: #f2d492;
+
+    border: none;
+    border-radius: 5px;
+
+    margin: 7px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.tasks-completed__line{
+    height: 1px;
+    width: calc(100% - 9vw);
+
+    margin: 0 10px;
+
+    background-color: #f2d492;
+}
