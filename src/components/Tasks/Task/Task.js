@@ -1,5 +1,7 @@
 import "./Task.scss";
 
+import TextareaAutosize from "react-textarea-autosize";
+
 import { useState } from "react";
 
 import { FiEdit2 } from "react-icons/fi";
@@ -37,15 +39,16 @@ function Task(props) {
 
       <div className="task__title">
         {edit ? (
-          <input
+          <TextareaAutosize
             onChange={titleEditHandler}
             onKeyPress={(event) => {
               event.key === "Enter" && editClickHandler();
             }}
             className="task__title__input"
-            type="text"
             placeholder={title}
-          ></input>
+            value={title}
+            maxRows={5}
+          ></TextareaAutosize>
         ) : (
           <h3>{title}</h3>
         )}
