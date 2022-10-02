@@ -4,12 +4,17 @@ import { useState } from "react";
 
 import { BsPlusLg } from "react-icons/bs";
 import { Form, InputGroup } from "react-bootstrap";
+import {BsFillMoonStarsFill, BsFillSunFill} from "react-icons/bs";
 
 function Toolbar(props) {
   const [task, setTask] = useState("");
+  const [darkMode, setDarkMode] = useState(true);
 
   function taskChangeHandler(event) {
     setTask(event.target.value);
+  }
+  function darkModeChangeHandler() {
+    setDarkMode(!darkMode);
   }
 
   function addTaskHandler() {
@@ -25,6 +30,9 @@ function Toolbar(props) {
 
   return (
     <header className="toolbar">
+      <button onClick={darkModeChangeHandler} className="toolbar-visual__switch">
+      {darkMode ? <BsFillMoonStarsFill size={20}/> : <BsFillSunFill size={25}/>}
+      </button>
       <InputGroup className="toolbar-input__container">
         <Form.Control
           type="text"

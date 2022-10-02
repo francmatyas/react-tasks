@@ -13,7 +13,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   padding: 0 1vw;
   box-sizing: border-box;
@@ -60,5 +60,31 @@
   &:hover {
     background-color: #202c39;
     color: #f2d492;
+  }
+}
+
+.toolbar-visual__switch{
+  position: absolute;
+  left: 3vw;
+  width: 2.75vw;
+  height: 2.75vw;
+
+  background-color: #202c39;
+
+  border: #f2d492 solid 2px;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #f2d492;
+
+  transition: 300ms;
+
+  &:hover {
+    background-color: #f2d492;
+    color: #202c39;
   }
 }

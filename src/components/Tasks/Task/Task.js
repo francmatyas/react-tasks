@@ -2,7 +2,7 @@ import "./Task.scss";
 
 import TextareaAutosize from "react-textarea-autosize";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { FiEdit2 } from "react-icons/fi";
 import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
@@ -13,14 +13,36 @@ function Task(props) {
   const [title, setTitle] = useState(props.data.title);
   const [completed, setCompleted] = useState(props.data.completed);
 
-  function editClickHandler() {
+  function editClickHandler(event) {
     setEdit(!edit);
+    event.stopPropagation();
   }
   function completedClickHandler() {
     setCompleted(!completed);
   }
   function titleEditHandler(event) {
     setTitle(event.target.value);
+  }
+  function clickOutsideHandler(event) {
+      setEdit(false);
+  }
+  const ref = useOutsideClick(clickOutsideHandler);
+
+  function useOutsideClick(callback) {
+    const ref = useRef();
+
+    useEffect(() => {
+      const handleClick = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          callback(event);
+        }
+      };
+      document.addEventListener("click", handleClick);
+      return () => {
+        document.removeEventListener("click", handleClick);
+      };
+    }, [ref]);
+    return ref;
   }
 
   return (
@@ -48,9 +70,10 @@ function Task(props) {
             placeholder={title}
             value={title}
             maxRows={5}
+            ref={ref}
           ></TextareaAutosize>
         ) : (
-          <h3>{title}</h3>
+          <h3 onDoubleClick={editClickHandler}>{title}</h3>
         )}
       </div>
       <div className="task__controls">
