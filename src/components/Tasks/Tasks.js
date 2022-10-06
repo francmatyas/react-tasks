@@ -13,30 +13,46 @@ function Tasks(props) {
     setShowCompleted(!showCompleted);
   }
 
-  const uncompletedTasks = props.data.filter((task) => !task.completed);
-  const completedTasks = props.data.filter((task) => task.completed);
+  const sortedTasks = [
+    [...props.data],
+    sortByDate(props.data),
+    sortByFavourite(props.data),
+    sortByAlphabetical(props.data),
+  ];
+
+  function sortByAlphabetical(data) {
+    return data.sort((a, b) => a.title.localeCompare(b.title));
+  }
+  function sortByDate(data) {
+    return data.sort((a, b) => a.date - b.date);
+  }
+  function sortByFavourite(data) {
+    return data.sort((a, b) => b.favourite - a.favourite);
+  }
+
+  const uncompletedTasks = sortedTasks[props.sort].filter((task) => !task.completed);
+  const completedTasks = sortedTasks[props.sort].filter((task) => task.completed);
 
   return (
     <div className="tasks">
       {uncompletedTasks.map((task) => (
         <Task data={task} key={task.id} />
       ))}
-     <div className="tasks-completed">
-     <button
-        onClick={showCompletedHandler}
-        className="tasks-completed__button"
-      >
-        {showCompleted ? (
-          <IoIosArrowDown size={25} />
-        ) : (
-          <IoIosArrowUp size={25} />
-        )}
-        {" Completed"}
-      </button>
-      {showCompleted && <div className="tasks-completed__line"></div>}
-      
-    </div> 
-     
+      <div className="tasks-completed">
+        <button
+          onClick={showCompletedHandler}
+          className="tasks-completed__button"
+        >
+          {showCompleted ? (
+            <IoIosArrowDown size={25} />
+          ) : (
+            <IoIosArrowUp size={25} />
+          )}
+          {" Completed"}
+        </button>
+        {showCompleted && <div className="tasks-completed__line"></div>}
+      </div>
+
       {showCompleted &&
         completedTasks.map((task) => <Task data={task} key={task.id} />)}
     </div>
