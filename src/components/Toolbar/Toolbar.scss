@@ -88,3 +88,42 @@
     color: #202c39;
   }
 }
+
+.toolbar-sort__container{
+  position: absolute;
+  right: 3vw;
+
+  width: 9vw;
+  height: 2.75vw;
+
+  box-sizing: border-box;
+  color: #f2d492;
+  background-color: #202c39;
+
+  border-radius: 10px;
+  border: #f2d492 solid 2px;
+}
+
+.toolbar-sort__select{
+  color: #f2d492;
+  background-color: #202c39;
+
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.toolbar-sort__icon{
+  width: 2vw;
+
+  background-color: transparent;
+  border: none;
+  border-left: #f2d492 solid 3px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f2d492;
+
+  padding: 0;
+}

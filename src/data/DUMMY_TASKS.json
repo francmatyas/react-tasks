@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Nakoupit",
+    "completed": false,
+    "id": 1
+  },
+  {
+    "title": "Posekat",
+    "completed": false,
+    "id": 2
+  },
+  {
+    "title": "Uklidit",
+    "completed": false,
+    "id": 3
+  },
+  {
+    "title": "Jít se psem",
+    "completed": true,
+    "id": 4
+  }
+]

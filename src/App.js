@@ -2,47 +2,36 @@ import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import DUMMY_TASKS from "./data/DUMMY_TASKS.json";
+
 import { useState } from "react";
 
 import Main from "./components/Main/Main";
 import Toolbar from "./components/Toolbar/Toolbar";
-
-const DUMMY_TASKS = [
-  {
-    title: "Nakoupit",
-    completed: false,
-    id: 1,
-  },
-  {
-    title: "Posekat",
-    completed: false,
-    id: 2,
-  },
-  {
-    title: "Uklidit",
-    completed: false,
-    id: 3,
-  },
-  {
-    title: "Jít do hospody",
-    completed: true,
-    id: 4,
-  },
-];
+import { BsSortAlphaUp } from "react-icons/bs";
 
 function App() {
   const [tasks, setTasks] = useState(DUMMY_TASKS);
+  const [sort, setSort] = useState(0);
 
   function addTaskHandler(task) {
     setTasks((prevTasks) => {
       return [task, ...prevTasks];
     });
   }
+  function sortChangeHandler(sort) {
+    setSort(sort);
+    console.log(sort);
+  }
 
   return (
     <div>
-      <Toolbar onTaskAdd={addTaskHandler} />
-      <Main data={tasks} />
+      <Toolbar
+        onTaskAdd={addTaskHandler}
+        onSortChange={sortChangeHandler}
+        sort={sort}
+      />
+      <Main data={tasks} sort={sort} />
     </div>
   );
 }
