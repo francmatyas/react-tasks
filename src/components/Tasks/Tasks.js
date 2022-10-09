@@ -15,22 +15,26 @@ function Tasks(props) {
 
   const sortedTasks = [
     [...props.data],
-    sortByDate(props.data),
-    sortByFavourite(props.data),
-    sortByAlphabetical(props.data),
+    [...sortByDate(props.data)],
+    [...sortByFavourite(props.data)],
+    [...sortByAlphabetical(props.data)],
   ];
 
   function sortByAlphabetical(data) {
-    return data.sort((a, b) => a.title.localeCompare(b.title));
+    let sortedData = [...data]
+    return sortedData.sort((a, b) => a.title.localeCompare(b.title));
   }
   function sortByDate(data) {
-    return data.sort((a, b) => a.date - b.date);
+    let sortedData = [...data]
+    return sortedData.sort((a, b) => a.date - b.date);
   }
   function sortByFavourite(data) {
-    return data.sort((a, b) => b.favourite - a.favourite);
+    let sortedData = [...data]
+    return sortedData.sort((a, b) => b.favorite - a.favorite);
   }
 
   const uncompletedTasks = sortedTasks[props.sort].filter((task) => !task.completed);
+  console.log(uncompletedTasks)
   const completedTasks = sortedTasks[props.sort].filter((task) => task.completed);
 
   return (

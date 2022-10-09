@@ -2,21 +2,26 @@
   {
     "title": "Nakoupit",
     "completed": false,
-    "id": 1
-  },
-  {
-    "title": "Posekat",
-    "completed": false,
-    "id": 2
+    "id": 1,
+    "favorite": false
   },
   {
     "title": "Uklidit",
     "completed": false,
-    "id": 3
+    "id": 3,
+    "favorite": false
+    
+  },
+  {
+    "title": "Posekat",
+    "completed": false,
+    "id": 2,
+    "favorite": true
   },
   {
     "title": "Jít se psem",
     "completed": true,
-    "id": 4
+    "id": 4,
+    "favorite": false
   }
 ]
