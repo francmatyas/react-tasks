@@ -12,6 +12,7 @@ function Task(props) {
   const [edit, setEdit] = useState(false);
   const [title, setTitle] = useState(props.data.title);
   const [completed, setCompleted] = useState(props.data.completed);
+  const [favorite, setFavorite] = useState(props.data.favorite);
 
   function editClickHandler(event) {
     setEdit(!edit);
@@ -20,11 +21,14 @@ function Task(props) {
   function completedClickHandler() {
     setCompleted(!completed);
   }
+  function favoriteClickHandler() {
+    setFavorite(!favorite);
+  }
   function titleEditHandler(event) {
     setTitle(event.target.value);
   }
   function clickOutsideHandler(event) {
-      setEdit(false);
+    setEdit(false);
   }
   const ref = useOutsideClick(clickOutsideHandler);
 
@@ -54,9 +58,16 @@ function Task(props) {
         >
           {completed ? <BsCheckCircleFill size={20} /> : <BsCircle size={20} />}
         </button>
-        {/*<button className="task-button task__controls__favorite">
-          <MdFavoriteBorder size={28}/>
-        </button>*/}
+        <button
+          className="task-button task__controls__favorite"
+          onClick={favoriteClickHandler}
+        >
+          {favorite ? (
+            <MdFavorite size={25} style={{ color: "#EF6F6C" }} />
+          ) : (
+            <MdFavoriteBorder size={25} />
+          )}
+        </button>
       </div>
 
       <div className="task__title">
@@ -77,7 +88,9 @@ function Task(props) {
         )}
       </div>
       <div className="task__controls">
-        {/*<button className="task-button task__controls__priority"></button>*/}
+        {/* <button className="task-button task__controls__priority">
+
+        </button> */}
         <button
           className="task-button task__controls__edit"
           onClick={editClickHandler}
