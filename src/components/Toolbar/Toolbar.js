@@ -82,7 +82,7 @@ function Toolbar(props) {
           <option value="0">Sort by</option>
           <option value="1">Date</option>
           <option value="2">Favorite</option>
-          <option value="3">Name</option>
+          <option value="3">Title</option>
         </Form.Select>
         <InputGroup.Text className="toolbar-sort__icon">
           {selectIcons[sort]}

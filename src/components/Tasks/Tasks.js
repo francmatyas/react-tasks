@@ -12,6 +12,7 @@ function Tasks(props) {
   function showCompletedHandler() {
     setShowCompleted(!showCompleted);
   }
+  const sortLabels = [" ", "Date", "Favorite", "Title"];
 
   const sortedTasks = [
     [...props.data],
@@ -21,21 +22,25 @@ function Tasks(props) {
   ];
 
   function sortByAlphabetical(data) {
-    let sortedData = [...data]
+    let sortedData = [...data];
     return sortedData.sort((a, b) => a.title.localeCompare(b.title));
   }
   function sortByDate(data) {
-    let sortedData = [...data]
+    let sortedData = [...data];
     return sortedData.sort((a, b) => a.date - b.date);
   }
   function sortByFavourite(data) {
-    let sortedData = [...data]
+    let sortedData = [...data];
     return sortedData.sort((a, b) => b.favorite - a.favorite);
   }
 
-  const uncompletedTasks = sortedTasks[props.sort].filter((task) => !task.completed);
-  console.log(uncompletedTasks)
-  const completedTasks = sortedTasks[props.sort].filter((task) => task.completed);
+  const uncompletedTasks = sortedTasks[props.sort].filter(
+    (task) => !task.completed
+  );
+  console.log(uncompletedTasks);
+  const completedTasks = sortedTasks[props.sort].filter(
+    (task) => task.completed
+  );
 
   return (
     <div className="tasks">
@@ -59,6 +64,16 @@ function Tasks(props) {
 
       {showCompleted &&
         completedTasks.map((task) => <Task data={task} key={task.id} />)}
+      {props.sort != 0 ? (
+        <div className="tasks-sort__display">
+          {sortLabels[props.sort]}
+          <div className="tasks-sort__arrow">
+            <i class="sort-arrow sort-arrow__up"></i>
+            <div className="sort-arrow__line"></div>
+            <i class="sort-arrow sort-arrow__down"></i>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

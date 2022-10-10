@@ -1,52 +1,109 @@
-.tasks{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.tasks {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    height: 100%;
-    width: 70vw;
+  height: 100%;
+  width: 70vw;
 
-    margin: auto;
+  margin: auto;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-   // overflow: auto;
+  // overflow: auto;
 }
 
-.tasks-completed{
-    height: 2.5vw;
-    width: 100%;
+.tasks-completed {
+  height: 2.5vw;
+  width: 100%;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.tasks-completed__button{
-    height: 2vw;
-    width: 9vw;
+.tasks-completed__button {
+  height: 2vw;
+  width: 9vw;
 
-    background-color: #283845;
-    color: #f2d492;
+  background-color: #283845;
+  color: #f2d492;
 
-    border: none;
-    border-radius: 5px;
+  border: none;
+  border-radius: 5px;
 
-    margin: 7px 0;
+  margin: 7px 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
-.tasks-completed__line{
-    height: 1px;
-    width: calc(100% - 9vw);
+.tasks-completed__line {
+  height: 1px;
+  width: calc(100% - 9vw);
 
-    margin: 0 10px;
+  margin: 0 10px;
 
-    background-color: #f2d492;
+  background-color: #f2d492;
+}
+
+.tasks-sort__display {
+  position: absolute;
+  top: 0;
+  right: 1vw;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 1vw;
+
+  writing-mode: tb-rl;
+  color: #f2d492;
+  font-size: larger;
+}
+
+.tasks-sort__arrow {
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort-arrow {
+  border: solid #f2d492;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.sort-arrow__up {
+  position: absolute;
+  top: 3vw;
+
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.sort-arrow__down {
+  position: absolute;
+  bottom: 3vw;
+
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.sort-arrow__line {
+  position: absolute;
+  top: 3vw;
+  bottom: 3vw;
+
+  width: 2px;
+
+  background-color: #f2d492;
 }
