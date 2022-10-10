@@ -19,6 +19,14 @@ function App() {
       return [task, ...prevTasks];
     });
   }
+  function editTaskHandler(task) {
+    setTasks((prevTasks) => {
+      const updatedTasks = [...prevTasks];
+      const taskIndex = updatedTasks.findIndex((t) => t.id === task.id);
+      updatedTasks[taskIndex] = task;
+      return updatedTasks;
+    });
+  }
   function sortChangeHandler(sort) {
     setSort(sort);
     console.log(sort);
@@ -31,7 +39,7 @@ function App() {
         onSortChange={sortChangeHandler}
         sort={sort}
       />
-      <Main data={tasks} sort={sort} />
+      <Main data={tasks} sort={sort} onEditTask={editTaskHandler} />
     </div>
   );
 }

@@ -14,10 +14,27 @@ function Task(props) {
   const [completed, setCompleted] = useState(props.data.completed);
   const [favorite, setFavorite] = useState(props.data.favorite);
 
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return; // skip first render
+    }
+    const editedTask = {
+      title: title,
+      completed: completed,
+      favorite: favorite,
+      id: props.data.id,
+    };
+    props.onEditTask(editedTask);
+  }, [title, completed, favorite]);
+
   function editClickHandler(event) {
-    setEdit(!edit);
     event.stopPropagation();
+    setEdit(!edit);
   }
+
   function completedClickHandler() {
     setCompleted(!completed);
   }
@@ -27,8 +44,9 @@ function Task(props) {
   function titleEditHandler(event) {
     setTitle(event.target.value);
   }
-  function clickOutsideHandler(event) {
+  function clickOutsideHandler() {
     setEdit(false);
+    
   }
   const ref = useOutsideClick(clickOutsideHandler);
 

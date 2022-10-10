@@ -34,10 +34,13 @@ function Tasks(props) {
     return sortedData.sort((a, b) => b.favorite - a.favorite);
   }
 
+  function editTaskHandler(task) {
+    props.onEditTask(task);
+  }
+
   const uncompletedTasks = sortedTasks[props.sort].filter(
     (task) => !task.completed
   );
-  console.log(uncompletedTasks);
   const completedTasks = sortedTasks[props.sort].filter(
     (task) => task.completed
   );
@@ -45,7 +48,7 @@ function Tasks(props) {
   return (
     <div className="tasks">
       {uncompletedTasks.map((task) => (
-        <Task data={task} key={task.id} />
+        <Task data={task} key={task.id} onEditTask={editTaskHandler} />
       ))}
       <div className="tasks-completed">
         <button
@@ -63,14 +66,16 @@ function Tasks(props) {
       </div>
 
       {showCompleted &&
-        completedTasks.map((task) => <Task data={task} key={task.id} />)}
+        completedTasks.map((task) => (
+          <Task data={task} key={task.id} onEditTask={editTaskHandler} />
+        ))}
       {props.sort != 0 ? (
         <div className="tasks-sort__display">
-          {sortLabels[props.sort]}
+          <div className="sort-arrow__label">{sortLabels[props.sort]}</div>
           <div className="tasks-sort__arrow">
-            <i class="sort-arrow sort-arrow__up"></i>
+            <i className="sort-arrow sort-arrow__up"></i>
             <div className="sort-arrow__line"></div>
-            <i class="sort-arrow sort-arrow__down"></i>
+            <i className="sort-arrow sort-arrow__down"></i>
           </div>
         </div>
       ) : null}
