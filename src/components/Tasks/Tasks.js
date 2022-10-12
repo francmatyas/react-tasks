@@ -62,7 +62,7 @@ function Tasks(props) {
           )}
           {" Completed"}
         </button>
-        {showCompleted && <div className="tasks-completed__line"></div>}
+        {showCompleted && <div className="tasks-separator__line"></div>}
       </div>
 
       {showCompleted &&
