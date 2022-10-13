@@ -25,13 +25,14 @@ function Tasks(props) {
     let sortedData = [...data];
     return sortedData.sort((a, b) => a.title.localeCompare(b.title));
   }
-  function sortByDate(data) {
-    let sortedData = [...data];
-    return sortedData.sort((a, b) => a.date - b.date);
-  }
   function sortByFavourite(data) {
     let sortedData = [...data];
     return sortedData.sort((a, b) => b.favorite - a.favorite);
+  }
+
+  function sortByDate(data) {
+    let sortedData = [...data];
+    return sortedData.sort((a, b) => Number(Date.parse(b.completion)) - Number(Date.parse(a.completion)));
   }
 
   function editTaskHandler(task) {

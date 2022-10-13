@@ -27,6 +27,7 @@
 
 .toolbar-input__task,
 .toolbar-input__task:focus {
+  height: 100%;
   height: 3vw;
 
   background-color: #202c39;
@@ -63,6 +64,13 @@
   }
 }
 
+.toolbar-demo{
+  position: absolute;
+  left: 3vw;
+
+  color: #202c39;
+}
+/*
 .toolbar-visual__switch{
   position: absolute;
   left: 3vw;
@@ -88,6 +96,7 @@
     color: #202c39;
   }
 }
+*/
 
 .toolbar-sort__container{
   position: absolute;
@@ -106,6 +115,7 @@
 }
 
 .toolbar-sort__select{
+  height: 100%;
   color: #f2d492;
   background-color: #202c39;
 
@@ -115,6 +125,7 @@
 }
 
 .toolbar-sort__icon{
+  height: 100%;
   width: 2vw;
 
   background-color: transparent;

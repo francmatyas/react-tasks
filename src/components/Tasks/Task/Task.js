@@ -7,12 +7,14 @@ import { useState, useEffect, useRef } from "react";
 import { FiEdit2 } from "react-icons/fi";
 import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
 import { MdFavoriteBorder, MdFavorite, MdClose } from "react-icons/md";
+import DateDisplay from "../../Ui/DateDisplay";
 
 function Task(props) {
   const [edit, setEdit] = useState(false);
   const [title, setTitle] = useState(props.data.title);
   const [completed, setCompleted] = useState(props.data.completed);
   const [favorite, setFavorite] = useState(props.data.favorite);
+  const [completion, setCompletion] = useState(Date.parse(props.data.completion))
 
   const isFirstRender = useRef(true);
 
@@ -106,9 +108,7 @@ function Task(props) {
         )}
       </div>
       <div className="task__controls">
-        {/* <button className="task-button task__controls__priority">
-
-        </button> */}
+        <DateDisplay date={completion}/>
         <button
           className="task-button task__controls__edit"
           onClick={editClickHandler}

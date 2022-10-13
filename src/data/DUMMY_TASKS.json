@@ -3,25 +3,29 @@
     "title": "Nakoupit",
     "completed": false,
     "id": 1,
-    "favorite": false
+    "favorite": false,
+    "completion": "2022-10-18T18:25:43.511Z"
   },
   {
     "title": "Uklidit",
     "completed": false,
     "id": 3,
-    "favorite": false
+    "favorite": false,
+    "completion": "2022-10-15T18:25:43.511Z"
     
   },
   {
     "title": "Posekat",
     "completed": false,
     "id": 2,
-    "favorite": true
+    "favorite": true,
+    "completion": "2022-10-23T18:25:43.511Z"
   },
   {
     "title": "Jít se psem",
     "completed": true,
     "id": 4,
-    "favorite": false
+    "favorite": false,
+    "completion": "2022-11-03T18:25:43.511Z"
   }
 ]

@@ -45,6 +45,8 @@ function Toolbar(props) {
 
   return (
     <header className="toolbar">
+      <h3 className="toolbar-demo">DEMO React App</h3>
+      {/*
       <button
         onClick={darkModeChangeHandler}
         className="toolbar-visual__switch"
@@ -55,6 +57,7 @@ function Toolbar(props) {
           <BsFillSunFill size={25} />
         )}
       </button>
+      */}
       <InputGroup className="toolbar-input__container">
         <Form.Control
           type="text"

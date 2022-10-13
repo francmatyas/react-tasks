@@ -1,0 +1,49 @@
+.date-display{
+    height: 5vw;
+    width: 5vw;
+
+    margin: 0.5vw;
+    margin-right: 1vw;
+}
+
+.date-display__day{
+    height: 35%;
+    width: 100%;
+    background-color: #f2d492;
+
+    border-radius: 10px 10px 0 0;
+    border: #f2d492 solid 1px;
+    border-bottom: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #202c39;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.date-display__date{
+    height: 65%;
+    width: 100%;
+
+    background-color: #202c39;
+    border-radius: 0 0 10px 10px;
+    border: #f2d492 solid 1px;
+    border-top: #f2d492 dashed 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.date-display__date-day{
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: large;
+}
+
+.date-display__date-month{
+    color: #f2d492;
+    font-weight: bold;
+    font-size: smaller;
+}
