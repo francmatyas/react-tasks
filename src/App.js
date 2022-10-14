@@ -10,15 +10,25 @@ import { Cookies, useCookies } from "react-cookie";
 import Main from "./components/Main/Main";
 import Toolbar from "./components/Toolbar/Toolbar";
 import InitialModal from "./components/Ui/Modal/InitialModal";
+import NewTaskAlert from "./components/Ui/Alert/NewTaskAlert";
 
 function App() {
   const [tasks, setTasks] = useState(DUMMY_TASKS.map((task) => ({ ...task, completion: new Date(task.completion) })));
   const [sort, setSort] = useState(0);
+  const [taskCreated, setTaskCreated] = useState(false);
 
   function addTaskHandler(task) {
     setTasks((prevTasks) => {
       return [task, ...prevTasks];
     });
+    setTaskCreated(true);
+
+    setTimeout(
+      function () {
+        setTaskCreated(false);
+      }.bind(this),
+      2500
+    );
   }
   function editTaskHandler(task) {
     setTasks((prevTasks) => {
@@ -52,6 +62,7 @@ function App() {
         sort={sort}
       />
       <Main data={tasks} sort={sort} onEditTask={editTaskHandler} />
+      <NewTaskAlert show={taskCreated} onClose={() => setTaskCreated(false)} />
     </div>
   );
 }
