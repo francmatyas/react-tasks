@@ -9,6 +9,7 @@ import Task from "./Task/Task";
 function Tasks(props) {
   const [showCompleted, setShowCompleted] = useState(true);
 
+
   function showCompletedHandler() {
     setShowCompleted(!showCompleted);
   }
@@ -32,7 +33,7 @@ function Tasks(props) {
 
   function sortByDate(data) {
     let sortedData = [...data];
-    return sortedData.sort((a, b) => Number(Date.parse(b.completion)) - Number(Date.parse(a.completion)));
+    return sortedData.sort((a, b) => a.completion - b.completion);
   }
 
   function editTaskHandler(task) {
@@ -45,6 +46,9 @@ function Tasks(props) {
   const completedTasks = sortedTasks[props.sort].filter(
     (task) => task.completed
   );
+
+  console.log(uncompletedTasks)
+
 
   return (
     <div className="tasks">

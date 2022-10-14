@@ -5,13 +5,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DUMMY_TASKS from "./data/DUMMY_TASKS.json";
 
 import { useState } from "react";
+import { Cookies, useCookies } from "react-cookie";
 
 import Main from "./components/Main/Main";
 import Toolbar from "./components/Toolbar/Toolbar";
-import { BsSortAlphaUp } from "react-icons/bs";
+import InitialModal from "./components/Ui/Modal/InitialModal";
 
 function App() {
-  const [tasks, setTasks] = useState(DUMMY_TASKS);
+  const [tasks, setTasks] = useState(DUMMY_TASKS.map((task) => ({ ...task, completion: new Date(task.completion) })));
   const [sort, setSort] = useState(0);
 
   function addTaskHandler(task) {
@@ -29,11 +30,22 @@ function App() {
   }
   function sortChangeHandler(sort) {
     setSort(sort);
-    console.log(sort);
+  }
+
+  const [modalShow, setModalShow] = useState(true);
+  const [cookies, setCookie] = useCookies("initialCookie");
+
+  function initialModalCloseHandler() {
+    setModalShow(false);
+    setCookie("initialCookie", {value: true}, { path: "/", maxAge: 60 * 60 * 24 });
   }
 
   return (
     <div>
+      <InitialModal
+        show={modalShow && !cookies.initialCookie}
+        onHide={initialModalCloseHandler}
+      />
       <Toolbar
         onTaskAdd={addTaskHandler}
         onSortChange={sortChangeHandler}

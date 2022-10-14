@@ -14,13 +14,13 @@ function Task(props) {
   const [title, setTitle] = useState(props.data.title);
   const [completed, setCompleted] = useState(props.data.completed);
   const [favorite, setFavorite] = useState(props.data.favorite);
-  const [completion, setCompletion] = useState(Date.parse(props.data.completion))
+  const [completion, setCompletion] = useState(props.data.completion)
 
-  const isFirstRender = useRef(true);
+  const [isFirstRender, setFirstRender] = useState(true)
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
+    if (isFirstRender) {
+      setFirstRender(false)
       return; // skip first render
     }
     const editedTask = {
@@ -28,9 +28,10 @@ function Task(props) {
       completed: completed,
       favorite: favorite,
       id: props.data.id,
+      completion: completion,
     };
     props.onEditTask(editedTask);
-  }, [title, completed, favorite]);
+  },[title, completed, favorite, completion]);
 
   function editClickHandler(event) {
     event.stopPropagation();

@@ -32,6 +32,7 @@ function Toolbar(props) {
         title: task,
         completed: false,
         id: Math.random(),
+        completion: new Date(),
       };
       setTask("");
 

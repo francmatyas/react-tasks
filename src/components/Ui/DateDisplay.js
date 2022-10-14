@@ -4,7 +4,6 @@ function DateDisplay(props) {
   const date = new Date(props.date);
   const day = date.getDate();
   const month = date.getMonth();
-  const year = date.getFullYear();
   const dayOfWeek = date.getDay();
   const dayOfWeekNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const monthNames = [
