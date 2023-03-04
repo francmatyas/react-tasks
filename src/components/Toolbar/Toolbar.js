@@ -1,6 +1,7 @@
 import "./Toolbar.scss";
 
 import { useState } from "react";
+import { Task } from "../../script/TaskUtils";
 
 import { BsPlusLg } from "react-icons/bs";
 import { Form, InputGroup } from "react-bootstrap";
@@ -17,18 +18,9 @@ function Toolbar(props) {
     <MdSortByAlpha size={20} />,
   ];
 
-  class Task {
-    constructor(title) {
-      this.title = title;
-      this.completed = false;
-      this.id = Math.random();
-      this.completion = new Date();
-    }
-  }
-
   function addTaskHandler() {
     if (taskTitle !== "") {
-      const newTask = new Task(taskTitle);
+      const newTask = Task.newTask(taskTitle);
       setTaskTitle("");
 
       props.onTaskCreate(newTask);

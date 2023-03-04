@@ -2,6 +2,7 @@ import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import DUMMY_TASKS from "./assets/data/DUMMY_TASKS.json";
+import { Task } from "./script/TaskUtils";
 
 import { useState } from "react";
 import { Cookies, useCookies } from "react-cookie";
@@ -12,9 +13,13 @@ import InitialModal from "./components/Ui/Modal/InitialModal";
 import NewTaskAlert from "./components/Ui/Alert/NewTaskAlert";
 
 function App() {
-  const [tasks, setTasks] = useState(DUMMY_TASKS.map((task) => ({ ...task, completion: new Date(task.completion) })));
+  const [tasks, setTasks] = useState(
+    DUMMY_TASKS.map((task) => Task.fromObject(task))
+  );
   const [sort, setSort] = useState(0);
   const [taskCreated, setTaskCreated] = useState(false);
+
+  console.log(tasks);
 
   function addTaskHandler(task) {
     setTasks((prevTasks) => {
@@ -29,6 +34,7 @@ function App() {
       2500
     );
   }
+
   function editTaskHandler(task) {
     setTasks((prevTasks) => {
       const updatedTasks = [...prevTasks];
@@ -46,7 +52,11 @@ function App() {
 
   function initialModalCloseHandler() {
     setModalShow(false);
-    setCookie("initialCookie", {value: true}, { path: "/", maxAge: 60 * 60 * 24 });
+    setCookie(
+      "initialCookie",
+      { value: true },
+      { path: "/", maxAge: 60 * 60 * 24 }
+    );
   }
 
   return (
