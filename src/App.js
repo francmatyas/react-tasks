@@ -1,8 +1,7 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import DUMMY_TASKS from "./data/DUMMY_TASKS.json";
+import DUMMY_TASKS from "./assets/data/DUMMY_TASKS.json";
 
 import { useState } from "react";
 import { Cookies, useCookies } from "react-cookie";
@@ -57,7 +56,7 @@ function App() {
         onHide={initialModalCloseHandler}
       />
       <Toolbar
-        onTaskAdd={addTaskHandler}
+        onTaskCreate={addTaskHandler}
         onSortChange={sortChangeHandler}
         sort={sort}
       />

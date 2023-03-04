@@ -9,7 +9,6 @@ import Task from "./Task/Task";
 function Tasks(props) {
   const [showCompleted, setShowCompleted] = useState(true);
 
-
   function showCompletedHandler() {
     setShowCompleted(!showCompleted);
   }
@@ -30,12 +29,10 @@ function Tasks(props) {
     let sortedData = [...data];
     return sortedData.sort((a, b) => b.favorite - a.favorite);
   }
-
   function sortByDate(data) {
     let sortedData = [...data];
     return sortedData.sort((a, b) => a.completion - b.completion);
   }
-
   function editTaskHandler(task) {
     props.onEditTask(task);
   }
@@ -47,27 +44,24 @@ function Tasks(props) {
     (task) => task.completed
   );
 
-  console.log(uncompletedTasks)
-
-
   return (
-    <div className="tasks">
+    <section id="tasks">
       {uncompletedTasks.map((task) => (
         <Task data={task} key={task.id} onEditTask={editTaskHandler} />
       ))}
-      <div className="tasks-completed">
+      <div id="tasks-completed">
         <button
           onClick={showCompletedHandler}
-          className="tasks-completed__button"
+          id="tasks-completed__button"
         >
           {showCompleted ? (
-            <IoIosArrowDown size={25} />
+            <IoIosArrowDown size={24} />
           ) : (
-            <IoIosArrowUp size={25} />
+            <IoIosArrowUp size={24} />
           )}
           {" Completed"}
         </button>
-        {showCompleted && <div className="tasks-separator__line"></div>}
+        {showCompleted && <div id="tasks-separator__line"></div>}
       </div>
 
       {showCompleted &&
@@ -84,7 +78,7 @@ function Tasks(props) {
           </div>
         </div>
       ) : null}
-    </div>
+    </section>
   );
 }
 

@@ -1,15 +1,14 @@
-.main{
-    position: absolute;
-    top: 5vw;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #283845;
+#main {
+  position: absolute;
+  top: 5vw;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #283845;
 
-    color: #fff;
-}
+  color: #fff;
 
-.main-card{
+  #main-card {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,4 +24,5 @@
     padding: 1vw;
 
     overflow: auto;
+  }
 }

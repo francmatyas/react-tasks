@@ -4,12 +4,10 @@ import { useState } from "react";
 
 import { BsPlusLg } from "react-icons/bs";
 import { Form, InputGroup } from "react-bootstrap";
-import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import { MdSort, MdDateRange, MdFavorite, MdSortByAlpha } from "react-icons/md";
 
 function Toolbar(props) {
-  const [task, setTask] = useState("");
-  const [darkMode, setDarkMode] = useState(true);
+  const [taskTitle, setTaskTitle] = useState("");
   const [sort, setSort] = useState(props.sort);
 
   const selectIcons = [
@@ -19,24 +17,21 @@ function Toolbar(props) {
     <MdSortByAlpha size={20} />,
   ];
 
-  function taskChangeHandler(event) {
-    setTask(event.target.value);
-  }
-  function darkModeChangeHandler() {
-    setDarkMode(!darkMode);
+  class Task {
+    constructor(title) {
+      this.title = title;
+      this.completed = false;
+      this.id = Math.random();
+      this.completion = new Date();
+    }
   }
 
   function addTaskHandler() {
-    if (task !== "") {
-      const newTask = {
-        title: task,
-        completed: false,
-        id: Math.random(),
-        completion: new Date(),
-      };
-      setTask("");
+    if (taskTitle !== "") {
+      const newTask = new Task(taskTitle);
+      setTaskTitle("");
 
-      props.onTaskAdd(newTask);
+      props.onTaskCreate(newTask);
     }
   }
   function sortChangeHandler(event) {
@@ -46,29 +41,13 @@ function Toolbar(props) {
 
   return (
     <header className="toolbar">
-      <h3 className="toolbar-demo">DEMO React App</h3>
-      {/*
-      <button
-        onClick={darkModeChangeHandler}
-        className="toolbar-visual__switch"
-      >
-        {darkMode ? (
-          <BsFillMoonStarsFill size={20} />
-        ) : (
-          <BsFillSunFill size={25} />
-        )}
-      </button>
-      */}
       <InputGroup className="toolbar-input__container">
         <Form.Control
           type="text"
-          value={task}
+          value={taskTitle}
           placeholder="Add a new task"
           className="toolbar-input__task"
-          onChange={taskChangeHandler}
-          onKeyPress={(event) => {
-            event.key === "Enter" && addTaskHandler();
-          }}
+          onChange={(event) => setTaskTitle(event.target.value)}
         />
         <button
           onClick={addTaskHandler}

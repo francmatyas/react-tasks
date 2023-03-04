@@ -1,5 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
-import logo from "../../../img/to-do-list.png";
+import logo from "../../../assets/img/to-do-list.png";
 
 import "./InitialModal.scss"
 
