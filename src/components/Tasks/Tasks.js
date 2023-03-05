@@ -5,34 +5,23 @@ import { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
 import Task from "./Task/Task";
+import SortLabel from "./SortLabel/SortLabel";
 
 function Tasks(props) {
   const [showCompleted, setShowCompleted] = useState(true);
+  const tasks = props.data;
 
   function showCompletedHandler() {
     setShowCompleted(!showCompleted);
   }
-  const sortLabels = [" ", "Date", "Favorite", "Title"];
 
   const sortedTasks = [
-    [...props.data],
-    [...sortByDate(props.data)],
-    [...sortByFavourite(props.data)],
-    [...sortByAlphabetical(props.data)],
+    [...tasks.getTasks()],
+    [...tasks.sortByDate()],
+    [...tasks.sortByFavorite()],
+    [...tasks.sortByTitle()],
   ];
 
-  function sortByAlphabetical(data) {
-    let sortedData = [...data];
-    return sortedData.sort((a, b) => a.title.localeCompare(b.title));
-  }
-  function sortByFavourite(data) {
-    let sortedData = [...data];
-    return sortedData.sort((a, b) => b.favorite - a.favorite);
-  }
-  function sortByDate(data) {
-    let sortedData = [...data];
-    return sortedData.sort((a, b) => a.completion - b.completion);
-  }
   function editTaskHandler(task) {
     props.onEditTask(task);
   }
@@ -50,10 +39,7 @@ function Tasks(props) {
         <Task data={task} key={task.id} onEditTask={editTaskHandler} />
       ))}
       <div id="tasks-completed">
-        <button
-          onClick={showCompletedHandler}
-          id="tasks-completed__button"
-        >
+        <button onClick={showCompletedHandler} id="tasks-completed__button">
           {showCompleted ? (
             <IoIosArrowDown size={24} />
           ) : (
@@ -68,16 +54,8 @@ function Tasks(props) {
         completedTasks.map((task) => (
           <Task data={task} key={task.id} onEditTask={editTaskHandler} />
         ))}
-      {props.sort != 0 ? (
-        <div className="tasks-sort__display">
-          <div className="sort-arrow__label">{sortLabels[props.sort]}</div>
-          <div className="tasks-sort__arrow">
-            <i className="sort-arrow sort-arrow__up"></i>
-            <div className="sort-arrow__line"></div>
-            <i className="sort-arrow sort-arrow__down"></i>
-          </div>
-        </div>
-      ) : null}
+
+      <SortLabel sort={props.sort} />
     </section>
   );
 }

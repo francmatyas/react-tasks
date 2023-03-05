@@ -2,10 +2,10 @@ import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import DUMMY_TASKS from "./assets/data/DUMMY_TASKS.json";
-import { Task } from "./script/TaskUtils";
+import { Tasks } from "./script/TaskUtils";
 
 import { useState } from "react";
-import { Cookies, useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 
 import Main from "./components/Main/Main";
 import Toolbar from "./components/Toolbar/Toolbar";
@@ -13,36 +13,27 @@ import InitialModal from "./components/Ui/Modal/InitialModal";
 import NewTaskAlert from "./components/Ui/Alert/NewTaskAlert";
 
 function App() {
-  const [tasks, setTasks] = useState(
-    DUMMY_TASKS.map((task) => Task.fromObject(task))
-  );
+  const [tasks, setTasks] = useState(Tasks.fromJSON(DUMMY_TASKS));
   const [sort, setSort] = useState(0);
   const [taskCreated, setTaskCreated] = useState(false);
 
-  console.log(tasks);
-
   function addTaskHandler(task) {
-    setTasks((prevTasks) => {
-      return [task, ...prevTasks];
-    });
-    setTaskCreated(true);
+    tasks.addTask(task);
+    const newTasks = Tasks.fromClass(tasks);
+    setTasks(newTasks);
 
-    setTimeout(
-      function () {
-        setTaskCreated(false);
-      }.bind(this),
-      2500
-    );
+    setTaskCreated(true);
+    setTimeout(function () {
+      setTaskCreated(false);
+    }, 2500);
   }
 
   function editTaskHandler(task) {
-    setTasks((prevTasks) => {
-      const updatedTasks = [...prevTasks];
-      const taskIndex = updatedTasks.findIndex((t) => t.id === task.id);
-      updatedTasks[taskIndex] = task;
-      return updatedTasks;
-    });
+    tasks.editTask(task);
+    const newTasks = Tasks.fromClass(tasks);
+    setTasks(newTasks);
   }
+
   function sortChangeHandler(sort) {
     setSort(sort);
   }
