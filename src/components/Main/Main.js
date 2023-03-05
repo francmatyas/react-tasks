@@ -14,12 +14,12 @@ function Main(props) {
           sort={props.sort}
           onEditTask={editTaskHandler}
         />
-        <span id="main-author">
+        <address id="main-author">
         This is a demo aplication created by{" "}
         <a rel="author" href="https://www.francmatyas.com/">
           Matyáš Franc
         </a>
-      </span>
+      </address>
       </div>
     </main>
   );

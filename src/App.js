@@ -52,10 +52,10 @@ function App() {
 
   return (
     <div id="App">
-      {/* <InitialModal
+      <InitialModal
         show={modalShow && !cookies.initialCookie}
         onHide={initialModalCloseHandler}
-      /> */}
+      />
       <Toolbar
         onTaskCreate={addTaskHandler}
         onSortChange={sortChangeHandler}

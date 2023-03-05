@@ -5,7 +5,7 @@ import "./InitialModal.scss";
 
 function InitialModal(props) {
   return (
-    <div>
+    <div id="initial-modal">
       <Modal
         {...props}
         size="lg"
@@ -16,7 +16,7 @@ function InitialModal(props) {
         <Modal.Header closeButton>
           <Modal.Title>Welcome to Tasks DEMO!</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="initial-modal__body">
+        <Modal.Body id="initial-modal__body">
           <img src={logo} alt="to do list" />
           <div>
             <p>
