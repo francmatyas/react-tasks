@@ -1,20 +1,16 @@
 {
   "files": {
-    "main.css": "/react-tasks/static/css/main.96945abb.css",
-    "main.js": "/react-tasks/static/js/main.e121c330.js",
+    "main.css": "/react-tasks/static/css/main.6b89cbd8.css",
+    "main.js": "/react-tasks/static/js/main.6628bd8a.js",
     "static/js/787.a03867db.chunk.js": "/react-tasks/static/js/787.a03867db.chunk.js",
-    "static/media/calendar.png": "/react-tasks/static/media/calendar.590b3c94cb31df1764a1.png",
-    "static/media/checkBoxCross.png": "/react-tasks/static/media/checkBoxCross.dc598cd2bc73806430a6.png",
-    "static/media/checkBox.png": "/react-tasks/static/media/checkBox.77c06527192e8c853736.png",
     "static/media/to-do-list.png": "/react-tasks/static/media/to-do-list.daddab8bf9c922a926ea.png",
-    "static/media/logo.svg": "/react-tasks/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/react-tasks/index.html",
-    "main.96945abb.css.map": "/react-tasks/static/css/main.96945abb.css.map",
-    "main.e121c330.js.map": "/react-tasks/static/js/main.e121c330.js.map",
+    "main.6b89cbd8.css.map": "/react-tasks/static/css/main.6b89cbd8.css.map",
+    "main.6628bd8a.js.map": "/react-tasks/static/js/main.6628bd8a.js.map",
     "787.a03867db.chunk.js.map": "/react-tasks/static/js/787.a03867db.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.96945abb.css",
-    "static/js/main.e121c330.js"
+    "static/css/main.6b89cbd8.css",
+    "static/js/main.6628bd8a.js"
   ]
 }
