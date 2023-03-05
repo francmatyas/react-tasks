@@ -22,11 +22,11 @@ function DateDisplay(props) {
   ];
 
   return (
-    <div className="date-display">
-      <div className="date-display__day">{dayOfWeekNames[dayOfWeek]}</div>
-      <div className="date-display__date">
-        <div className="date-display__date-day">{day}</div>
-        <div className="date-display__date-month">{monthNames[month]}</div>
+    <div id="date-display">
+      <div id="date-display__day">{dayOfWeekNames[dayOfWeek]}</div>
+      <div id="date-display__date">
+        <div id="date-display__date-day">{day}</div>
+        <div id="date-display__date-month">{monthNames[month]}</div>
       </div>
     </div>
   );

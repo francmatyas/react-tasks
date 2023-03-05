@@ -1,28 +1,26 @@
 #main {
-  position: absolute;
-  top: 5vw;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #283845;
+  grid-row: main-start/main-end;
+  height: 100%;
 
   color: #fff;
+  padding: 0 2rem 2rem 2rem;
+  overflow: hidden;
 
   #main-card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
+    height: 100%;
+    width: 100%;
     background-color: #202c39;
-    border-radius: 25px;
-    border: #202c39 solid 10px;
+    border-radius: 1rem;
+    padding: 2rem;
 
-    box-sizing: border-box;
-    margin: 0 1.5vw 1.5vw;
-    padding: 1vw;
+    overflow: scroll;
+  }
 
-    overflow: auto;
+  #main-author {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 8px;
+    font-size: 0.8rem;
   }
 }

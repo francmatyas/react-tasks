@@ -1,1 +1,8 @@
 
+#App{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: [header-start] min-content [header-end main-start] auto [main-end];
+    background-color: #283845;
+    overflow: hidden;
+}

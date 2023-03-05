@@ -28,11 +28,11 @@ function Toolbar(props) {
   }
   function sortChangeHandler(event) {
     setSort(event.target.value);
-    props.onSortChange(event.target.value);
+    props.onSortChange(parseInt(event.target.value));
   }
 
   return (
-    <header className="toolbar">
+    <header id="toolbar">
       <InputGroup className="toolbar-input__container">
         <Form.Control
           type="text"

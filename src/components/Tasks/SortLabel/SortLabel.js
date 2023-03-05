@@ -2,6 +2,7 @@ import "./SortLabel.scss";
 
 function SortLabel(props) {
   const sortLabels = [" ", "Date", "Favorite", "Title"];
+  console.log(props.sort)
   return (
     <>
       {props.sort ? (
@@ -13,7 +14,9 @@ function SortLabel(props) {
             <i className="sort-arrow sort-arrow__down"></i>
           </div>
         </div>
-      ) : null}
+      ) : (
+        <></>
+      )}
     </>
   );
 }

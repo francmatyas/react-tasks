@@ -1,12 +1,7 @@
-.toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  height: 5vw;
+#toolbar {
+  grid-row: header-start/header-end;
+  height: 5rem;
   width: 100%;
-  margin: auto;
 
   background-color: #283845;
   color: #e0e0e0;
@@ -15,35 +10,34 @@
   align-items: center;
   justify-content: center;
 
-  padding: 0 1vw;
   box-sizing: border-box;
   z-index: 100;
 }
 
 .toolbar-input__container{
-    width: 40vw;;
+    width: 30rem;
 }
 
 
 .toolbar-input__task,
 .toolbar-input__task:focus {
   height: 100%;
-  height: 3vw;
+  height: 3rem;
 
   background-color: #202c39;
   color: #f2d492;
 
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
   border: #f2d492 solid 2px;
   border-right: none;
 
-  padding: 10px;
+  padding: 8px;
   font-size: 1.5rem;
   box-sizing: border-box;
 }
 
 .toolbar-input__confirm {
-  width: 3vw;
+  width: 3rem;
 
   display: flex;
   justify-content: center;
@@ -53,10 +47,10 @@
   color: #202c39;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   border: solid 2px #f2d492;
 
-  transition: 300ms;
+  transition: 0.3s;
 
   &:hover {
     background-color: #202c39;
@@ -64,53 +58,19 @@
   }
 }
 
-.toolbar-demo{
-  position: absolute;
-  left: 3vw;
-
-  color: #202c39;
-}
-/*
-.toolbar-visual__switch{
-  position: absolute;
-  left: 3vw;
-  width: 2.75vw;
-  height: 2.75vw;
-
-  background-color: #202c39;
-
-  border: #f2d492 solid 2px;
-  border-radius: 10px;
-  box-sizing: border-box;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: #f2d492;
-
-  transition: 300ms;
-
-  &:hover {
-    background-color: #f2d492;
-    color: #202c39;
-  }
-}
-*/
-
 .toolbar-sort__container{
   position: absolute;
-  right: 3vw;
+  right: 3rem;
 
-  width: 9vw;
+  width: 8rem;
   min-width: fit-content;
-  height: 2.75vw;
+  height: 2.75rem;
 
   box-sizing: border-box;
   color: #f2d492;
   background-color: #202c39;
 
-  border-radius: 10px;
+  border-radius: 8px;
   border: #f2d492 solid 2px;
 }
 
@@ -120,13 +80,13 @@
   background-color: #202c39;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 1rem;
 }
 
 .toolbar-sort__icon{
   height: 100%;
-  width: 2vw;
+  width: 2rem;
 
   background-color: transparent;
   border: none;

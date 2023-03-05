@@ -51,11 +51,11 @@ function App() {
   }
 
   return (
-    <div>
-      <InitialModal
+    <div id="App">
+      {/* <InitialModal
         show={modalShow && !cookies.initialCookie}
         onHide={initialModalCloseHandler}
-      />
+      /> */}
       <Toolbar
         onTaskCreate={addTaskHandler}
         onSortChange={sortChangeHandler}

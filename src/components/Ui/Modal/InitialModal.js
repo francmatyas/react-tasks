@@ -26,7 +26,12 @@ function InitialModal(props) {
             </p>
             <p>You can also sort tasks by date, title or favorite.</p>
             <p>Enjoy!</p>
-            <address className="initial-modal__author">By Matyáš Franc</address>
+            <address className="initial-modal__author">
+              By{" "}
+              <a rel="author" href="https://www.francmatyas.com/">
+                Matyáš Franc
+              </a>
+            </address>
           </div>
         </Modal.Body>
         <Modal.Footer>
